@@ -1,0 +1,11 @@
+---
+# This task installs and enables apache on webservers
+- name: update apt get 
+  shell: apt-get update
+- name: ensure apache is installed
+  apt: name=apache2 state=latest
+- name: ensure apache is running
+  service: name=apache2 state=started enabled=yes
+- name: copy application code to document root
+  template: src=index.html.j2 dest=/var/www/html/index.html
+  notify: restart apache2
