@@ -314,7 +314,7 @@ fi
 export AWS_ACCESS_KEY_ID=$ACCESSKEYID
 export AWS_SECRET_ACCESS_KEY=$ACCESSKEY
 export ANSIBLE_HOST_KEY_CHECKING=false
-
+cp hosts.template hosts
 ####################################
 #
 # Create Ansible playbook yaml file from template
@@ -355,7 +355,11 @@ ansible-playbook -i ./hosts site.yml
 # Test the zone
 #
 
+IPADDRESS=`cat hosts | sed -e '1,/webserver/d' | head -n 1`
 
+wget $IPADDRESS
+
+cmp --silent index.html roles/webserver/templates/index.html.j2 && echo '### SUCCESS: Files Are Successfully deployed to web server! ###' || echo '### WARNING: Files Are Different! ###'
 
 ####################################
 #
