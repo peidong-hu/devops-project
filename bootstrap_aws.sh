@@ -9,23 +9,7 @@
 #               [ PARMNm1 ]  PARMN
 #
 ########################################################################
-#
-# SVN keywords   (N/A to Git)
-# ---------------------------
-# $Id$
-# $Revision$
-# $Author$
-# $Date$
-# $HeadURL$
-#
-# Expanded SVN keywords   (N/A to Git)
-# ------------------------------------
-# $Id: sample-script-template.sh 303 2018-04-18 17:01:05Z 3571917 $
-# $Revision: 303 $
-# $Author: 3571917 $
-# $Date: 2018-04-18 12:01:05 -0500 (Wed, 18 Apr 2018) $
-# $HeadURL: https://conexus.prod.fedex.com:9443/subversion/devopsys/admin-tools/support/doc/sample-script-template.sh $
-#
+
 ########################################################################
 #
 # 0        Success
