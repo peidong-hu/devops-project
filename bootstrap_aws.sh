@@ -339,12 +339,13 @@ echo "$DEPLOYFILE" > $PLAYBOOKFILENAME
 ansible-playbook -i ./hosts $PLAYBOOKFILENAME
 
 ##################
-#
+# TODO setup listner to check the status of the vm to make sure
+#      the vm has fully booted before next task.
 # Ansible install apache and deploy index.html to www root folder
 #
-
-ssh-agent bash
-ssh-add ~/.ssh/$DASH_DASH_AWS_SECURITY_GROUP_VALUE.pem
+sleep 180
+eval `ssh-agent`
+ssh-add ~/.ssh/$DASH_DASH_AWS_KEYPAIR_VALUE.pem
 
 ansible-playbook -i ./hosts site.yml
 
@@ -353,6 +354,7 @@ ansible-playbook -i ./hosts site.yml
 #
 # Test the zone
 #
+
 
 
 ####################################
